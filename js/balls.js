@@ -24,10 +24,12 @@ window.onload=function(){
 function drawBalls(cxt)
 {
 	cxt.clearRect(0,0,canvas_width,canvas_height);//对一个矩形空间内的图像进行刷新
+	cxt.beginPath();
 	cxt.fillStyle="#4EB8EB";
 	cxt.font="20px sans-serif";
 	cxt.textAlign="center";
 	cxt.fillText("第一次自己用Canvas做出小小的作品",500,20);
+	cxt.closePath();
 	for(var i=0;i<balls.length;i++)
 		{
 						
