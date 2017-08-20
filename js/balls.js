@@ -49,12 +49,7 @@ function drawBalls(cxt)
 			console.log("black theme");
 			cxt.fillRect(0,0,canvas.width,canvas.height);
 		}
-	cxt.beginPath();
-	cxt.fillStyle="#4EB8EB";
-	cxt.font="20px sans-serif";
-	cxt.textAlign="center";
-	cxt.fillText("第一次自己用Canvas做出小小的作品",500,20);
-	cxt.closePath();
+
 	for(var i=0;i<balls.length;i++)
 		{
 						
@@ -64,6 +59,12 @@ function drawBalls(cxt)
 			cxt.closePath();
 			cxt.fill();		
 		}
+		cxt.beginPath();
+	cxt.fillStyle="#4EB8EB";
+	cxt.font="20px sans-serif";
+	cxt.textAlign="center";
+	cxt.closePath();
+	cxt.fillText("第一次自己用Canvas做出小demo",500,20);
 }
 //添加彩色小球
 function addBalls()
@@ -73,9 +74,9 @@ function addBalls()
 			var r=Math.random()*20+30;
 			var x=Math.random()*canvas_width;
 			var y=Math.random()*canvas_height;
-			var R=Math.random()*255+1;
-			var G=Math.random()*255+1;
-			var B=Math.random()*255+1;
+			var R=Math.round(Math.random()*255+1);
+			var G=Math.round(Math.random()*255+1);
+			var B=Math.round(Math.random()*255+1);
 			var color="rgb("+R+","+G+","+B+")";
 			var vx=Math.random()*10;
 			var vy=Math.random()*10;
