@@ -4,18 +4,29 @@ var canvas_width=1000;
 var canvas_height=600;
 var canvas=document.getElementById('canvas');
 var context=canvas.getContext('2d');
+//移动标志
+var isMove=true;
+//主题背景
+var themeColor="white";
+//特效选择 默认为特效一
+var effect="1";
 window.onload=function(){
 	WINDOW_WIDTH=document.body.clientWidth;
 	WIDOW_HEIGHT=document.body.scrollHeight||document.documentElement.clientHeight;
 	canvas.width=canvas_width;
 	canvas.height=canvas_height;
 	//context.globalAlpha=0.7;
-	context.globalCompositeOperation="xor";
+	context.globalCompositeOperation="lighter";
 	addBalls();
 	
 	setInterval(function(){
 		drawBalls(context);
-		updateBalls();
+		if(isMove)
+			{
+				
+				updateBalls();
+			}
+		
 		
 	},50);
 	
@@ -24,14 +35,26 @@ window.onload=function(){
 function drawBalls(cxt)
 {
 	cxt.clearRect(0,0,canvas_width,canvas_height);//对一个矩形空间内的图像进行刷新
+	if(effect=="2")
+		{
+			cxt.globalCompositeOperation="xor";
+		}
+	else
+		{
+			cxt.globalCompositeOperation="lighter";
+		}
+	if(themeColor=="black")
+		{
+			cxt.fillStyle="black";
+			console.log("black theme");
+			cxt.fillRect(0,0,canvas.width,canvas.height);
+		}
 	cxt.beginPath();
 	cxt.fillStyle="#4EB8EB";
 	cxt.font="20px sans-serif";
 	cxt.textAlign="center";
-	cxt.closePath();
 	cxt.fillText("第一次自己用Canvas做出小小的作品",500,20);
-	
-	
+	cxt.closePath();
 	for(var i=0;i<balls.length;i++)
 		{
 						
@@ -94,3 +117,35 @@ function updateBalls(){
 				}
 		}
 }
+
+//控制背景
+document.getElementById("white-btn").onclick=function(){
+	themeColor="white";
+	return false;
+};
+document.getElementById("black-btn").onclick=function(){
+	themeColor="black";
+	return false;
+};
+//控制小球运动
+document.getElementById("control-btn").onclick=function(){
+	if(isMove)
+		{
+			isMove=false;
+			this.text="开始动画";
+		}
+	else
+		{
+			isMove=true;
+			this.text="暂停动画";
+		}
+};
+//控制特效
+document.getElementById("effect-1").onclick=function(){
+	effect="1";
+	return false;
+};
+document.getElementById("effect-2").onclick=function(){
+	effect="2";
+	return false;
+};

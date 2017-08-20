@@ -6,16 +6,99 @@
 <style type="text/css">
 
 	#canvas{
-		margin: 0 250px;
+		
 	}
 	canvas{
 		border: 2px solid #4EB8EB;
+	}
+	.canvas-wrap{
+		width: 1002px;
+		height: 600px;
+		margin: 10px auto;
+		position: relative;
+		
+	}
+	.control{
+		width: 20%;
+		height: 25%;
+		position: absolute;
+		left: 30px;
+		top: 30px;
+		background: rgba(115,164,244,0.7);
+		border-radius: 10px;
+	}
+	.control h1{
+		font-family:  "Times New Roman", "serif";
+		font-size: 14px;
+		color: #fff;
+		text-align: center;
+		
+	}
+	.control a{
+		color: #fff;
+		text-decoration: none;
+	}
+	#control-btn{
+		float: left;
+		margin-left: 10px;
+		display: block;
+		font-size: 12px;
+		width: 80px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		background-color: #22AD73;
+		margin-top: 25px;
+		border-radius: 5px;
+	}
+	#white-btn,#black-btn{
+		float:right;
+		margin-right: 15px;
+		display: block;
+		width: 25px;
+		height:15px;
+		margin-top: 30px;
+		border-radius: 3px;
+	}
+	#white-btn{
+		background-color: #fff;
+	}
+	#black-btn{
+		background-color: #000;
+	}
+	#effect-1,#effect-2{
+		display: block;	
+		width: 30%;
+		height: 30px;
+		line-height: 30px;
+		background-color: #F5C5C6;
+		border-radius: 3px;
+		text-align: center;
+		font-size: 12px;
+	}
+	#effect-1{
+		float: left;
+		margin-left: 20px;
+	}
+	#effect-2{
+		float: right;
+		margin-right: 20px;
 	}
 </style>
 </head>
 
 <body>
-<canvas id="canvas"></canvas>
+<div class="canvas-wrap">
+	<canvas id="canvas"></canvas>
+	<div class="control">
+		<h1>Canvas 绘图之旅</h1>
+		<a href="#" id="effect-1">特效一</a>
+		<a href="#" id="effect-2">特效二</a>
+		<a href="#" id="control-btn">暂停动画</a>
+		<a href="#" id="white-btn"></a>
+		<a href="#" id="black-btn"></a>
+	</div>
+</div>
 <script src="js/balls.js" ></script>
 </body>
 </html>
